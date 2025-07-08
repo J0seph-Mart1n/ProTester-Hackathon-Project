@@ -2,19 +2,20 @@ package com.test.testCases;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.test.resources.Activity;
 import com.test.resources.Movie;
@@ -25,38 +26,54 @@ public class Main {
 	public WebDriver driver;
 	public HashMap<String,String> list=new HashMap<String,String>();
 	
+	int lastCount;
+	
 	public WebDriver createDriver(){
-		driver = new EdgeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		return driver;
 	}
 	
-	public void getTopValues(WebDriver driver) throws InterruptedException{
-		Thread.sleep(5000);
+	public void getTopValues(WebDriver driver){
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		//Click location
-		driver.findElement(By.cssSelector(".dds-w-8.dds-h-8.dds-flex.dds-items-center.dds-justify-center")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".dds-w-8.dds-h-8.dds-flex.dds-items-center.dds-justify-center"))).click();
 		//Change location to Pune
-		driver.findElement(By.xpath("//*[@id=\"page-content\"]/div[3]/div/div/div/div/div[2]/div[1]/div/div[10]/img")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"page-content\"]/div[3]/div/div/div/div/div[2]/div[1]/div/div[10]/img"))).click();
 		
 		//Click activities tab
-		driver.findElement(By.xpath("//a[text()='Activities']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Activities']"))).click();
 		System.out.println("clicked activities");
 		
 		//Scrolling till the end of page
 		System.out.println("scrolling");
+		List<WebElement> activities = driver.findElements(By.cssSelector("a.dds-h-full"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		int i=0;
-		do{
-			js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-			Thread.sleep(3000);
-			i++;
-		}while(i<10);
+		
+		lastCount = activities.size();
+		while (true) {
+			try {
+					// Scroll to the bottom
+				    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	
+				    // Wait for new activities to load
+				    boolean contentLoaded = new WebDriverWait(driver, Duration.ofSeconds(3))
+				        .until(driver1 -> {
+				            List<WebElement> currentActivities = driver1.findElements(By.cssSelector("a.dds-h-full"));
+				            return currentActivities.size() > lastCount;
+				        });
+	
+	
+				    lastCount = driver.findElements(By.cssSelector("a.dds-h-full")).size();
+			}catch(Exception e) {
+				break;
+			}
+		}
+		
 		
 		//Storing all activities in a list
-		List<WebElement> activities= driver.findElements(By.cssSelector("a.dds-h-full"));
+		activities= driver.findElements(By.cssSelector("a.dds-h-full"));
 		System.out.println("collecting elements");
 		
 		List<Activity> activityInfo = new ArrayList<>();
@@ -91,12 +108,6 @@ public class Main {
 		    
 		    //Adding to the list
 		    activityInfo.add(new Activity(startTime, endTime, activity, location, doublePrice));
-		    
-		    
-//			System.out.println("Time: " + parts[0]);
-//			System.out.println("Activity: " + parts[1]);
-//			System.out.println("Location: " + parts[2]);
-//			System.out.println("Price: " + parts[3]);
 		}
 		
 		//Filtering activities coming on weekends and sorted in lowest price
@@ -111,9 +122,11 @@ public class Main {
 
 	}
 	
-	public void getMovieLanguages(WebDriver driver) throws InterruptedException {
-		driver.findElement(By.xpath("//a[text()='Movies']")).click();
-		Thread.sleep(5000);
+	public void getMovieLanguages(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Movies']"))).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+			    By.xpath("//*[@id=\"page-content\"]/section/div/div[1]/div[2]/div[2]/a")));
 		List<WebElement> movies = driver.findElements(By.xpath("//*[@id=\"page-content\"]/section/div/div[1]/div[2]/div[2]/a"));
 		
 		List<Movie> movieList = new ArrayList<>();
@@ -138,11 +151,14 @@ public class Main {
 		
 	}
 	
-	public void validateSignIn(WebDriver driver) throws InterruptedException {
-		driver.findElement(By.xpath("//a[@href='/profile']")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//button[text()='Continue']")).click();
-		String errorMsg = driver.findElement(By.xpath("//div[@class='dds-p-4']/div[1]/div[2]/p")).getText();
+	public void validateSignIn(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/profile']"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Continue']"))).click();
+		String errorMsg = wait
+			    .until(ExpectedConditions.visibilityOfElementLocated(
+			        By.xpath("//div[@class='dds-p-4']/div[1]/div[2]/p")))
+			    .getText();
 		System.out.println(errorMsg);
 	}
 	
@@ -155,14 +171,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		Main ui = new Main();
 		WebDriver driver = ui.createDriver();
-		try {
-			ui.getTopValues(driver);
-			ui.getMovieLanguages(driver);
-			ui.validateSignIn(driver);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ui.getTopValues(driver);
+		ui.getMovieLanguages(driver);
+		ui.validateSignIn(driver);
 		ui.closeDriver();
 
 	}
