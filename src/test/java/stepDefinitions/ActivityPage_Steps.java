@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 
+import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictActivitiesPage;
 import com.test.utilities.DriverSetup;
 import com.test.resources.Activity;
@@ -21,7 +22,7 @@ public class ActivityPage_Steps {
 	@Given("Open the activity page")
 	public void open_the_activity_page() {
 	    // Write code here that turns the phrase above into concrete actions
-		driver = DriverSetup.driver;
+		driver = BaseClass.getDriver();
 		activities = new DistrictActivitiesPage(driver);
 		activities.clickActivitiesPage();
 	}
@@ -36,6 +37,6 @@ public class ActivityPage_Steps {
 	public void print_all_the_activities_extracted() {
 	    // Write code here that turns the phrase above into concrete actions
 		activities.printActivites(activityInfo);
-		DriverSetup.setDriver(driver);
+		BaseClass.setDriver(driver);
 	}
 }

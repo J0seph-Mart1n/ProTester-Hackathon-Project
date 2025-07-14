@@ -2,8 +2,8 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictSignInPage;
-import com.test.utilities.DriverSetup;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,7 +17,7 @@ public class SignInPage_Steps {
 	@Given("Open User page")
 	public void open_user_page() {
 	    // Write code here that turns the phrase above into concrete actions
-		driver = DriverSetup.driver;
+		driver = BaseClass.getDriver();
 	    signIn = new DistrictSignInPage(driver);
 	    signIn.clickUserIcon();
 	}

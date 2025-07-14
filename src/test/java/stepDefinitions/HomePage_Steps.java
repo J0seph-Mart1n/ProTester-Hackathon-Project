@@ -6,8 +6,8 @@ import io.cucumber.java.en.When;
 
 import org.openqa.selenium.WebDriver;
 
+import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictHomePage;
-import com.test.utilities.DriverSetup;
 
 public class HomePage_Steps {
 	
@@ -17,7 +17,7 @@ public class HomePage_Steps {
 	@Given("user is on the district home page")
 	public void user_is_on_the_district_home_page() {
 	    // Write code here that turns the phrase above into concrete actions
-		driver = DriverSetup.driver;
+		driver = BaseClass.getDriver();
 	    home = new DistrictHomePage(driver);
 	}
 	
@@ -37,6 +37,6 @@ public class HomePage_Steps {
 	public void the_location_should_be_changed_to_pune() {
 	    // Write code here that turns the phrase above into concrete actions
 	    System.out.println("Location changed to Pune");
-	    DriverSetup.setDriver(driver);
+	    BaseClass.setDriver(driver);
 	}
 }

@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 
+import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictMoviePage;
 import com.test.resources.Movie;
-import com.test.utilities.DriverSetup;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,7 +21,7 @@ public class MoviePage_Steps {
 	@Given("Open the movies page")
 	public void open_the_movies_page() {
 	    // Write code here that turns the phrase above into concrete actions
-		driver = DriverSetup.driver;
+		driver = BaseClass.getDriver();
 	    movie = new DistrictMoviePage(driver);
 	    movie.clickMoviesPage();
 	}
@@ -34,6 +34,6 @@ public class MoviePage_Steps {
 	public void print_all_the_languages_extracted() {
 	    // Write code here that turns the phrase above into concrete actions
 	    movie.printMovieLanguage(movieList);
-	    DriverSetup.setDriver(driver);
+	    BaseClass.setDriver(driver);
 	}
 }
