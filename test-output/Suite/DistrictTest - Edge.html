@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>DistrictTest - Edge</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jul 09 09:45:14 IST 2025</td>
+<td>Started on:</td><td>Fri Jul 11 16:30:49 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>26 seconds (26376 ms)</td>
+<tr><td>Total time:</td><td>21 seconds (21214 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,25 +76,199 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.test.testCases.Main.districtActivitiesPage()'><b>districtActivitiesPage</b><br>Test class: com.test.testCases.Main</td>
-<td></td>
-<td>9</td>
-<td>com.test.testCases.Main@5bda8e08</td></tr>
-<tr>
-<td title='com.test.testCases.Main.districtMoviePage()'><b>districtMoviePage</b><br>Test class: com.test.testCases.Main</td>
-<td></td>
+<td title='testRunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Getting movie languages", "MoviesPage"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open the movies page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open the movies page&quot;)
+public void open_the_movies_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Getting all the languages of movies present&quot;)
+public void getting_all_the_languages_of_movies_present() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;print all the languages extracted&quot;)
+public void print_all_the_languages_extracted() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open the movies page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test3_MoviePage.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1944138464", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1944138464'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open the movies page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open the movies page&quot;)
+public void open_the_movies_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Getting all the languages of movies present&quot;)
+public void getting_all_the_languages_of_movies_present() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;print all the languages extracted&quot;)
+public void print_all_the_languages_extracted() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open the movies page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test3_MoviePage.feature:4)
+</pre></div></td>
 <td>0</td>
-<td>com.test.testCases.Main@5bda8e08</td></tr>
+<td>testRunner.TestRun@69453e37</td></tr>
 <tr>
-<td title='com.test.testCases.Main.districtHomePage()'><b>districtHomePage</b><br>Test class: com.test.testCases.Main</td>
-<td></td>
-<td>1</td>
-<td>com.test.testCases.Main@5bda8e08</td></tr>
-<tr>
-<td title='com.test.testCases.Main.districtSignIn()'><b>districtSignIn</b><br>Test class: com.test.testCases.Main</td>
-<td></td>
+<td title='testRunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Change Location", "HomePage"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user is on the district home page&apos; and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;user is on the district home page&quot;)
+public void user_is_on_the_district_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;user clicks the location button&quot;)
+public void user_clicks_the_location_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;clicks the Pune location&quot;)
+public void clicks_the_pune_location() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;the location should be changed to Pune&quot;)
+public void the_location_should_be_changed_to_pune() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user is on the district home page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test1_HomePage.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1061018585", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1061018585'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user is on the district home page&apos; and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;user is on the district home page&quot;)
+public void user_is_on_the_district_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;user clicks the location button&quot;)
+public void user_clicks_the_location_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;clicks the Pune location&quot;)
+public void clicks_the_pune_location() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;the location should be changed to Pune&quot;)
+public void the_location_should_be_changed_to_pune() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user is on the district home page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test1_HomePage.feature:4)
+</pre></div></td>
 <td>0</td>
-<td>com.test.testCases.Main@5bda8e08</td></tr>
+<td>testRunner.TestRun@69453e37</td></tr>
+<tr>
+<td title='testRunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Getting Activities", "ActivityPage"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open the activity page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open the activity page&quot;)
+public void open_the_activity_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Getting all the activities coming in weekends and sort in lowest price order&quot;)
+public void getting_all_the_activities_coming_in_weekends_and_sort_in_lowest_price_order() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;Print all the activities extracted&quot;)
+public void print_all_the_activities_extracted() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open the activity page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test2_ActivityPage.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2004655561", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2004655561'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open the activity page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open the activity page&quot;)
+public void open_the_activity_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Getting all the activities coming in weekends and sort in lowest price order&quot;)
+public void getting_all_the_activities_coming_in_weekends_and_sort_in_lowest_price_order() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;Print all the activities extracted&quot;)
+public void print_all_the_activities_extracted() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open the activity page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test2_ActivityPage.feature:4)
+</pre></div></td>
+<td>0</td>
+<td>testRunner.TestRun@69453e37</td></tr>
+<tr>
+<td title='testRunner.TestRun.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRun<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check for SignIn fail", "SignIn"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open User page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open User page&quot;)
+public void open_user_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Clicked submit without filling phone number&quot;)
+public void clicked_submit_without_filling_phone_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;Print the error message shown&quot;)
+public void print_the_error_message_shown() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open User page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test4_SignInPage.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace611502040", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace611502040'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;Open User page&apos; and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;Open User page&quot;)
+public void open_user_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When(&quot;Clicked submit without filling phone number&quot;)
+public void clicked_submit_without_filling_phone_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;Print the error message shown&quot;)
+public void print_the_error_message_shown() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.Open User page(file:///C:/Users/2403740/ProTester-Hackathon-Project/Hackathon_Project/./src/test/resources/features/Test4_SignInPage.feature:4)
+</pre></div></td>
+<td>0</td>
+<td>testRunner.TestRun@69453e37</td></tr>
 </table><p>
 </body>
 </html>

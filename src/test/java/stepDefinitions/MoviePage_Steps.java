@@ -1,0 +1,39 @@
+package stepDefinitions;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+
+import com.test.objectRepository.DistrictMoviePage;
+import com.test.resources.Movie;
+import com.test.utilities.DriverSetup;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class MoviePage_Steps {
+	
+	WebDriver driver;
+	DistrictMoviePage movie;
+	List<Movie> movieList;
+	
+	@Given("Open the movies page")
+	public void open_the_movies_page() {
+	    // Write code here that turns the phrase above into concrete actions
+		driver = DriverSetup.driver;
+	    movie = new DistrictMoviePage(driver);
+	    movie.clickMoviesPage();
+	}
+	@When("Getting all the languages of movies present")
+	public void getting_all_the_languages_of_movies_present() {
+	    // Write code here that turns the phrase above into concrete actions
+	    movieList = movie.getMovieLanguage();
+	}
+	@Then("print all the languages extracted")
+	public void print_all_the_languages_extracted() {
+	    // Write code here that turns the phrase above into concrete actions
+	    movie.printMovieLanguage(movieList);
+	    DriverSetup.setDriver(driver);
+	}
+}

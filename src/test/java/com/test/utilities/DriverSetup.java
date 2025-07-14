@@ -33,10 +33,14 @@ public class DriverSetup {
         }
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(url);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		System.out.println("Opened District Website");
 		return driver;
+	}
+	
+	public static void setDriver(WebDriver driver) {
+		DriverSetup.driver = driver;
 	}
 	
 	static public void driverTearDown() {

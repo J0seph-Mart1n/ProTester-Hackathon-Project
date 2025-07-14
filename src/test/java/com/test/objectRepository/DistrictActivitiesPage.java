@@ -52,7 +52,7 @@ public class DistrictActivitiesPage {
 	
 				    // Wait for new activities to load
 				    boolean contentLoaded = new WebDriverWait(driver, Duration.ofSeconds(3))
-				        .until(driver1 -> {
+				        .until(driver1 -> { 
 				            List<WebElement> currentActivities = driver1.findElements(By.cssSelector("a.dds-h-full"));
 				            return currentActivities.size() > lastCount;
 				        });
@@ -74,10 +74,19 @@ public class DistrictActivitiesPage {
 		for (WebElement act :activities) {
 			String text = act.getText();
 			String[] parts = text.split("\\R");
-			String time = parts[0];
-			String activity = parts[1];
-			String location = parts[2];
-			String price  = parts[3].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+			String time, activity, location, price;
+			time = parts[0];
+			if(time.contains(",")) {
+				activity = parts[1];
+				location = parts[2];
+				price  = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+			}else {
+				time = parts[1];
+				activity = parts[2];
+				location = parts[3];
+				price = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+			}
+			
 			
 			
 		    double doublePrice = Double.parseDouble(price); //Parse double digit
@@ -112,8 +121,8 @@ public class DistrictActivitiesPage {
 		return weekendActivities;
 	}
 	
-	public void printActivites() {
-		List<Activity> weekendActivities = this.getActivites();
+	public void printActivites(List<Activity> weekendActivities) {
+
 		for (Activity act : weekendActivities) {
 		    System.out.println(act);
 		}

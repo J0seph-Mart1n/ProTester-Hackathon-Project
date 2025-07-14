@@ -1,79 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-09T09:45:14 IST" name="Suite" finished-at="2025-07-09T09:46:05 IST" duration-ms="50223">
+  <suite started-at="2025-07-14T11:02:17 IST" name="Default suite" finished-at="2025-07-14T11:02:47 IST" duration-ms="29632">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRun@20d525]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-09T09:45:14 IST" name="DistrictTest - Edge" finished-at="2025-07-09T09:45:41 IST" duration-ms="26376">
-      <class name="com.test.testCases.Main">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:15 IST" name="setUp" finished-at="2025-07-09T09:45:25 IST" duration-ms="10083" status="PASS">
+    <test started-at="2025-07-14T11:02:17 IST" name="Default test" finished-at="2025-07-14T11:02:47 IST" duration-ms="29632">
+      <class name="testRunner.TestRun">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:17 IST" name="setUpClass" finished-at="2025-07-14T11:02:32 IST" duration-ms="14351" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[edge]]>
+                <![CDATA[org.testng.TestRunner@1431267b]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="districtHomePage()[pri:1, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:25 IST" name="districtHomePage" finished-at="2025-07-09T09:45:26 IST" duration-ms="1192" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- districtHomePage -->
-        <test-method signature="districtActivitiesPage()[pri:2, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:26 IST" name="districtActivitiesPage" finished-at="2025-07-09T09:45:36 IST" duration-ms="9725" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- districtActivitiesPage -->
-        <test-method signature="districtMoviePage()[pri:3, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:36 IST" name="districtMoviePage" finished-at="2025-07-09T09:45:36 IST" duration-ms="888" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- districtMoviePage -->
-        <test-method signature="districtSignIn()[pri:4, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:36 IST" name="districtSignIn" finished-at="2025-07-09T09:45:37 IST" duration-ms="834" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- districtSignIn -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.test.testCases.Main@5bda8e08]" started-at="2025-07-09T09:45:37 IST" name="tearDown" finished-at="2025-07-09T09:45:41 IST" duration-ms="3593" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.test.testCases.Main -->
-    </test> <!-- DistrictTest - Edge -->
-    <test started-at="2025-07-09T09:45:41 IST" name="DistrictTest - Chrome" finished-at="2025-07-09T09:46:05 IST" duration-ms="23800">
-      <class name="com.test.testCases.Main">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:45:41 IST" name="setUp" finished-at="2025-07-09T09:45:49 IST" duration-ms="8552" status="PASS">
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-14T11:02:33 IST" duration-ms="937" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA["Change Location"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["HomePage"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="districtHomePage()[pri:1, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:45:49 IST" name="districtHomePage" finished-at="2025-07-09T09:45:50 IST" duration-ms="1031" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-14T11:02:43 IST" duration-ms="9895" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Getting Activities"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["ActivityPage"]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- districtHomePage -->
-        <test-method signature="districtActivitiesPage()[pri:2, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:45:50 IST" name="districtActivitiesPage" finished-at="2025-07-09T09:45:59 IST" duration-ms="9009" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-14T11:02:43 IST" duration-ms="497" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Getting movie languages"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["MoviesPage"]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- districtActivitiesPage -->
-        <test-method signature="districtMoviePage()[pri:3, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:45:59 IST" name="districtMoviePage" finished-at="2025-07-09T09:46:00 IST" duration-ms="766" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-14T11:02:44 IST" duration-ms="849" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Check for SignIn fail"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["SignIn"]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- districtMoviePage -->
-        <test-method signature="districtSignIn()[pri:4, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:46:00 IST" name="districtSignIn" finished-at="2025-07-09T09:46:01 IST" duration-ms="976" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRun@20d525]" started-at="2025-07-14T11:02:44 IST" name="tearDownClass" finished-at="2025-07-14T11:02:47 IST" duration-ms="3063" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- districtSignIn -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.test.testCases.Main@3d34d211]" started-at="2025-07-09T09:46:01 IST" name="tearDown" finished-at="2025-07-09T09:46:05 IST" duration-ms="3457" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.test.testCases.Main -->
-    </test> <!-- DistrictTest - Chrome -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunner.TestRun -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

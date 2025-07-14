@@ -26,9 +26,15 @@ public class DistrictSignInPage {
 	@FindBy(xpath="//button[text()='Continue']") WebElement submitBtn;
 	
 	//Actions
-	public void validateSignIn() {
+	public void clickUserIcon() {
 		wait.until(ExpectedConditions.elementToBeClickable(profileBtn)).click();
+	}
+	
+	public void clickSubmitBtn() {
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
+	}
+	
+	public void validateSignIn() {
 		String errorMsg = wait
 			    .until(ExpectedConditions.visibilityOfElementLocated(
 			        By.xpath("//div[@class='dds-p-4']/div[1]/div[2]/p")))

@@ -30,8 +30,13 @@ public class DistrictMoviePage {
 	@FindBy(xpath = "//*[@id='page-content']/section/div/div[1]/div[2]/div[2]/a") List<WebElement> movies;
 	
 	//Actions
-	public List<Movie> getMovieLanguage(){
+	public void clickMoviesPage() {
+		//Moves to Movies Page
 		wait.until(ExpectedConditions.elementToBeClickable(moviesBtn)).click();
+	}
+	
+	public List<Movie> getMovieLanguage(){
+		
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='page-content']/section/div/div[1]/div[2]/div[2]/a")));
 		
 		List<Movie> movieList = new ArrayList<>();
@@ -53,8 +58,7 @@ public class DistrictMoviePage {
 		return movieList;
 	}
 	
-	public void printMovieLanguage() {
-		List<Movie> movieList = this.getMovieLanguage();
+	public void printMovieLanguage(List<Movie> movieList) {
 		for(Movie mov:movieList) {
 			System.out.println(mov);
 		}

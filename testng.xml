@@ -5,14 +5,14 @@
   <test name="DistrictTest - Edge">  
   <parameter name="browser" value="edge"/>
     <classes>
-      <class name="com.test.testCases.Main"/>
+      <class name="testRunner.TestRun"/>
     </classes>
   </test> <!-- Test -->
   
   <test name="DistrictTest - Chrome">  
   <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.test.testCases.Main"/>
+      <class name="testRunner.TestRun"/>
     </classes>
   </test> <!-- Test -->
   
