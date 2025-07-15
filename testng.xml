@@ -2,6 +2,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
+  <listeners>
+	<listener class-name="listenerUtility.CustomListener"/>
+	<listener class-name="listenerUtility.RetryTransformer"/>
+  </listeners>
+
   <test name="DistrictTest - Edge">  
   <parameter name="browser" value="edge"/>
     <classes>
