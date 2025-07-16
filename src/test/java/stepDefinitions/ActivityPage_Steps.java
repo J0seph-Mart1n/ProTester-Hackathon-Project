@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictActivitiesPage;
 import com.test.resources.Activity;
-import com.test.utilities.DriverSetup;
+import com.test.utilities.ExcelReaderWrite;
 
 public class ActivityPage_Steps {
 	
@@ -38,5 +39,15 @@ public class ActivityPage_Steps {
 	    // Write code here that turns the phrase above into concrete actions
 		activities.printActivites(activityInfo);
 		BaseClass.setDriver(driver);
+	}
+	
+	@Then("Write all activities in Excel sheet")
+	public void excelWriteOperation() throws IOException {
+		String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
+        String sheetName  = "SortedActivities";
+
+        // write the Activity list into the sheet
+        ExcelReaderWrite.writeActivities(excelPath, sheetName, activityInfo);
+        System.out.println("✅ Activities written to Excel at " + excelPath);
 	}
 }

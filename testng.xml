@@ -3,8 +3,8 @@
 <suite name="Suite">
 
   <listeners>
-	<listener class-name="listenerUtility.CustomListener"/>
-	<listener class-name="listenerUtility.RetryTransformer"/>
+	<listener class-name="com.test.utilities.CustomListener"/>
+	<listener class-name="com.test.utilities.RetryTransformer"/>
   </listeners>
 
   <test name="DistrictTest - Edge">  
@@ -14,11 +14,12 @@
     </classes>
   </test> <!-- Test -->
   
-  <test name="DistrictTest - Chrome">  
+  <!--<test name="DistrictTest - Chrome">  
   <parameter name="browser" value="chrome"/>
     <classes>
       <class name="testRunner.TestRun"/>
     </classes>
-  </test> <!-- Test -->
+  </test>  Test -->
+  
   
 </suite> <!-- Suite -->

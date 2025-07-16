@@ -1,9 +1,14 @@
 package stepDefinitions;
 
+import java.io.IOException;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictLetterSearch;
+import com.test.utilities.ExcelReaderWrite;
+
 import io.cucumber.java.en.*;
 
 public class LetterSearch_Steps {
@@ -53,5 +58,16 @@ public class LetterSearch_Steps {
     public void the_user_prints_all_result_buttons() {
         letter.printAllResultButtons();
         BaseClass.setDriver(driver);
+    }
+    
+    @Then("Write the city names in Excel sheet")
+    public void writeCityToExcel() throws IOException {
+    	List<String> letterCities = letter.getLetterCity();
+    	String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
+        String sheetName  = "Cities";
+
+        // write the list of cities into the sheet
+        ExcelReaderWrite.writeLetterCity(excelPath, sheetName, letterCities);
+        System.out.println("✅ Cities written to Excel at " + excelPath);
     }
 }

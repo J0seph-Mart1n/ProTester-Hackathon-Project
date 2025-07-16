@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictEventsPage;
 import com.test.objectRepository.DistrictSocialLinks;
-import com.test.utilities.ExcelReadorWrite;
+import com.test.utilities.ExcelReaderWrite;
 
 import java.io.IOException;
 import java.util.List;
@@ -50,11 +50,11 @@ public class EventPage_Steps {
     @Then("The user writes sorted events to Excel")
     public void the_user_writes_sorted_events_to_excel() throws IOException {
         // define relative path & sheet name
-        String excelPath  = "src/test/resources/testdata/events.xlsx";
+        String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
         String sheetName  = "SortedEvents";
 
         // write the sortedEvents list into the sheet
-        ExcelReadorWrite.writeEvents(excelPath, sheetName, sortedEvents);
+        ExcelReaderWrite.writeEvents(excelPath, sheetName, sortedEvents);
         System.out.println("✅ Events written to Excel at " + excelPath);
     }
 

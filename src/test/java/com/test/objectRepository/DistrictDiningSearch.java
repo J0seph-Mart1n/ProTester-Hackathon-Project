@@ -2,6 +2,7 @@
 package com.test.objectRepository;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.test.resources.Dining;
 
 /**
  * Encapsulates Dining search: open Dining, search cafe, read details.
@@ -42,7 +45,7 @@ public class DistrictDiningSearch {
     /**
      * Searches for cafeName and prints its name, rate, price, time, address.
      */
-    public void getCafeInfo(String cafeName) throws InterruptedException {
+    public List<Dining> getCafeInfo(String cafeName) throws InterruptedException {
     	
     	Thread.sleep(3000);
     	wait.until(ExpectedConditions.visibilityOf(diningMenu)).click();
@@ -69,6 +72,10 @@ public class DistrictDiningSearch {
         System.out.println("Time    : " + parts[2].replace("\n", "").replace("\r", ""));
         System.out.println("Address : " + address);
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+        
+        List<Dining> diningInfo = new ArrayList<>();
+        diningInfo.add(new Dining(name, parts[0], parts[1], parts[2].replace("\n", "").replace("\r", ""), address));
+        return diningInfo;
     }
 
 	public WebDriver getDriver() {

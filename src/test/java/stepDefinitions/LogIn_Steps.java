@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictLogInPage;
+import com.test.utilities.PropertyUtility;
 
 public class LogIn_Steps {
 	WebDriver driver;
@@ -30,7 +31,9 @@ public class LogIn_Steps {
 
 	@When("user enters mobile number from Excel")
 	public void user_enters_mobile_number_from_excel() throws Exception {
-		loginAndLogout.enterMobNo("9172232178");
+		Properties p = PropertyUtility.getLogInProperties();
+		String number = p.getProperty("mobileNo");
+		loginAndLogout.enterMobNo(number);
 	}
 
 	@When("user clicks on continue")
