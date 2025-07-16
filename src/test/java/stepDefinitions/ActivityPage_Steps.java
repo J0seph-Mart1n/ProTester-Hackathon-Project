@@ -10,8 +10,8 @@ import org.openqa.selenium.WebDriver;
 
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictActivitiesPage;
-import com.test.utilities.DriverSetup;
 import com.test.resources.Activity;
+import com.test.utilities.DriverSetup;
 
 public class ActivityPage_Steps {
 	
