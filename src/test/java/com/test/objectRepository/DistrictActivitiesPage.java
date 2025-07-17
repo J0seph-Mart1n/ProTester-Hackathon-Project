@@ -55,9 +55,7 @@ public class DistrictActivitiesPage {
 				        .until(driver1 -> { 
 				            List<WebElement> currentActivities = driver1.findElements(By.cssSelector("a.dds-h-full"));
 				            return currentActivities.size() > lastCount;
-				        });
-	
-	
+				        });	
 				    lastCount = driver.findElements(By.cssSelector("a.dds-h-full")).size();
 			}catch(Exception e) {
 				break;

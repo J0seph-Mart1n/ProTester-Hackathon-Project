@@ -12,7 +12,7 @@ public class DistrictEventsPage {
     private WebDriverWait wait;
     private JavascriptExecutor js;
 
-    private final By eventCardLocator = By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[3]/div[2]/a");
+    private By eventCardLocator = By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[3]/div[2]/a");
     //private final By priceLoc = By.xpath(".//span[contains(text(),'₹') or contains(text(),'Free')]");
 
     private final By dateLoc     = By.xpath(".//div/div/span[1]");
@@ -81,7 +81,16 @@ public class DistrictEventsPage {
 
     public static class Event {
         private final String date, name, location;
-        private final int price;
+        public String getDate() {
+			return date;
+		}
+		public String getName() {
+			return name;
+		}
+		public String getLocation() {
+			return location;
+		}
+		private final int price;
         public Event(String date, String name, String location, int price) {
             this.date = date; this.name = name;
             this.location = location; this.price = price;

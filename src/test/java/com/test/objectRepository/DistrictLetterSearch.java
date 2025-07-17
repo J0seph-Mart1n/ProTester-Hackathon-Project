@@ -5,12 +5,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class DistrictLetterSearch {
     WebDriver driver;
     Actions actions;
+    List<String> cityLetters;
 
     public DistrictLetterSearch(WebDriver driver) {
         this.driver = driver;
@@ -55,8 +57,16 @@ public class DistrictLetterSearch {
     }
 
     public void printAllResultButtons() {
+    	cityLetters = new ArrayList<>();
         for (WebElement button : resultButtons) {
+        	cityLetters.add(button.getText());
             System.out.println(button.getText());
         }
     }
+    
+    public List<String> getLetterCity() {
+    	return cityLetters;
+    }
+    
+    
 }

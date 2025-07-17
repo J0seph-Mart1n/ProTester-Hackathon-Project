@@ -27,7 +27,8 @@ public class DistrictMoviePage {
 	
 	//Locators
 	@FindBy(xpath = "//a[text()='Movies']") WebElement moviesBtn;
-	@FindBy(xpath = "//*[@id='page-content']/section/div/div[1]/div[1]/div[2]/a") List<WebElement> movies;
+	
+	@FindBy(xpath = "//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[1]/div[2]/a") List<WebElement> movies;
 	
 	//Actions
 	public void clickMoviesPage() {
@@ -37,7 +38,7 @@ public class DistrictMoviePage {
 	
 	public List<Movie> getMovieLanguage(){
 		
-		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='page-content']/section/div/div[1]/div[1]/div[2]/a")));
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[1]/div[2]/a")));
 		
 		List<Movie> movieList = new ArrayList<>();
 		

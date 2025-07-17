@@ -22,11 +22,9 @@ public class BaseClass {
 	static Properties p;
 	static Logger logger;
  
-	public static WebDriver initilizeBrowser() throws IOException {
+	public static WebDriver initilizeBrowser(String browser) throws IOException {
 		p = getProperties();
 		String executionEnv = p.getProperty("executionEnvironment");
-		String browser = p.getProperty("browser").toLowerCase();
-//		String os = p.getProperty("os").toLowerCase();
  
 		if (executionEnv.equalsIgnoreCase("remote")) {
  

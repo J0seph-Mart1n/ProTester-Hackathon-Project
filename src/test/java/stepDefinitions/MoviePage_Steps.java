@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictMoviePage;
 import com.test.resources.Movie;
+import com.test.utilities.ExcelReaderWrite;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -35,5 +37,15 @@ public class MoviePage_Steps {
 	    // Write code here that turns the phrase above into concrete actions
 	    movie.printMovieLanguage(movieList);
 	    BaseClass.setDriver(driver);
+	}
+	
+	@Then("Write the list to Excel sheet")
+	public void writeListToExcel() throws IOException {
+		String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
+        String sheetName  = "Movies";
+
+        // write the Activity list into the sheet
+        ExcelReaderWrite.writeMovies(excelPath, sheetName, movieList);
+        System.out.println("✅ Movies written to Excel at " + excelPath);
 	}
 }
