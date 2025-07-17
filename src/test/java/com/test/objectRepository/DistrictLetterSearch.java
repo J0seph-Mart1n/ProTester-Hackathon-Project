@@ -33,7 +33,7 @@ public class DistrictLetterSearch {
     @FindBy(xpath = "//*[@id='page-content']/div[3]/div/div/div/div/div[2]/div[2]/div[1]/button")
     List<WebElement> letterButtons;
 
-    @FindBy(xpath = "//*[@id='page-content']/div[3]/div/div/div/div/div[2]/div[2]/div[2]")
+    @FindBy(xpath = "//*[@id='page-content']/div[3]/div/div/div/div/div[2]/div[2]/div[2]/button")
     List<WebElement> resultButtons;
 
     // Actions
