@@ -41,6 +41,15 @@ public class DistrictActivitiesPage {
 		wait.until(ExpectedConditions.elementToBeClickable(activitiesBtn)).click();
 	}
 	
+	private int parsePrice(String txt) {
+        if (txt == null || txt.isEmpty()) return -1;
+        txt = txt.toLowerCase();
+        if (txt.contains("free")) return 0;
+        txt = txt.replaceAll("[\\$,₹,]", "").replace("onwards", "").trim();
+        try { return Integer.parseInt(txt); }
+        catch (NumberFormatException e) { return -1; }
+    }
+	
 	public List<Activity> getActivites() {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		
@@ -51,7 +60,7 @@ public class DistrictActivitiesPage {
 				    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	
 				    // Wait for new activities to load
-				    boolean contentLoaded = new WebDriverWait(driver, Duration.ofSeconds(3))
+				    boolean contentLoaded = new WebDriverWait(driver, Duration.ofSeconds(4))
 				        .until(driver1 -> { 
 				            List<WebElement> currentActivities = driver1.findElements(By.cssSelector("a.dds-h-full"));
 				            return currentActivities.size() > lastCount;
@@ -63,9 +72,11 @@ public class DistrictActivitiesPage {
 		}
 		
 		
+		
+		
 		//Storing all activities in a list
 		activities= driver.findElements(By.cssSelector("a.dds-h-full"));
-		System.out.println("collecting elements");
+		System.out.println(" collecting elements");
 		
 		List<Activity> activityInfo = new ArrayList<>();
 		
@@ -77,16 +88,23 @@ public class DistrictActivitiesPage {
 			if(time.contains(",")) {
 				activity = parts[1];
 				location = parts[2];
-				price  = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+				price = "" + parsePrice(parts[parts.length - 1]);
+//				price  = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+//				if (price.equals("Free")){
+//					price ="0";
+//				}
 			}else {
 				time = parts[1];
 				activity = parts[2];
 				location = parts[3];
-				price = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+				price = "" + parsePrice(parts[parts.length - 1]);
+//				price = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
+//				if (price.equals("Free")){
+//					price ="0";
+//				}
 			}
 			
-			
-			
+						
 		    double doublePrice = Double.parseDouble(price); //Parse double digit
 		    
 		    //Splitting date and time

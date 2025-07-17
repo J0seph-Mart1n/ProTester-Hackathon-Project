@@ -1,60 +1,16 @@
-//package stepDefinitions;
-//
-//
-//import com.test.factory.BaseClass;
-//import com.test.objectRepository.DistrictMovieSeat;
-//import com.test.utilities.PropertyUtility;
-//
-//import io.cucumber.java.en.*;
-//
-//import static org.testng.Assert.assertEquals;
-//
-//import java.io.IOException;
-//import java.util.Properties;
-//
-//import org.openqa.selenium.WebDriver;
-//
-//public class MovieSeat_Steps {
-//	WebDriver driver;
-//    private DistrictMovieSeat moviePage;
-//
-//    @When("The user chooses seats for a movie")
-//    public void chooseSeats() throws InterruptedException, IOException {
-//    	Properties p = PropertyUtility.getMovieSeatProperties();
-//    	int n = Integer.parseInt(p.getProperty("seatCount"));
-//    	String movie = p.getProperty("movie");
-//    	String date = p.getProperty("date");
-//    	String time = p.getProperty("time");
-//        System.out.println("→ ENTERING chooseSeats: " + n + ", " + movie + ", " + date + ", " + time);
-//        driver = BaseClass.getDriver();
-//        moviePage = new DistrictMovieSeat(driver);
-//        moviePage.selectSeats(n, movie, date, time);
-//        System.out.println("→ EXITING chooseSeats");
-//    }
-//
-//    @Then("The user should see exact seats selected")
-//    public void verifySeatCount(int expected) {
-//        String raw = moviePage.getSeatsCountText(); 
-//        System.out.println("Seats‐header raw text: \"" + raw + "\"");
-//        int actual = moviePage.getSelectedSeatsCount(); 
-//        System.out.println("Parsed actual seat count = " + actual);
-//        assertEquals(expected, actual,
-//            "Expected " + expected + " seats but saw " + actual);
-//        BaseClass.setDriver(driver);
-//    }
-//
-//}
-
 package stepDefinitions;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.test.factory.BaseClass;
 import com.test.objectRepository.DistrictMovieSeat;
 import com.test.utilities.PropertyUtility;
+import com.test.utilities.ScreenShot;
 
 import io.cucumber.java.en.*;
 
@@ -70,37 +26,37 @@ public class MovieSeat_Steps {
     public void user_on_home_page() throws IOException {
         driver = BaseClass.getDriver();
         props = PropertyUtility.getMovieSeatProperties();
-        // optionally navigate to base URL if defined
-       //driver.navigateTo()
-        String baseUrl = props.getProperty("baseUrl");
-        if (baseUrl != null && !baseUrl.isBlank()) {
-        	driver.navigate().to(baseUrl);
-        }
-        moviePage = new DistrictMovieSeat(driver);
+        driver.navigate().to("https://www.district.in/");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		moviePage = new DistrictMovieSeat(driver,wait );
+        BaseClass.getLogger().info("Step completed: Initialized Home page and MovieSeat page object");
     }
 
     @When("the user clicks on the Movies menu")
     public void user_clicks_movies_menu() {
-    	
         moviePage.openMoviesSection();
+        BaseClass.getLogger().info("Step completed: Clicked on the Movies menu");
     }
 
     @When("the user selects the movie from the property file")
     public void user_selects_movie_from_property_file() {
         String movie = props.getProperty("movie");
         moviePage.selectMovie(movie);
+        BaseClass.getLogger().info("Step completed: Selected movie '" + movie + "' from properties");
     }
 
     @When("the user selects the date from the property file")
     public void user_selects_date_from_property_file() {
         String date = props.getProperty("date");
         moviePage.selectDate(date);
+        BaseClass.getLogger().info("Step completed: Selected date '" + date + "' from properties");
     }
 
     @When("the user selects the time slot from the property file")
     public void user_selects_time_slot_from_property_file() {
         String time = props.getProperty("time");
         moviePage.selectTimeSlot(time);
+        BaseClass.getLogger().info("Step completed: Selected time slot '" + time + "' from properties");
     }
 
     @When("the user selects the number of seats defined in the property file")
@@ -108,6 +64,7 @@ public class MovieSeat_Steps {
         expectedSeats = Integer.parseInt(props.getProperty("seatCount"));
         boolean success = moviePage.selectRandomSeats(expectedSeats);
         assertTrue(success, "Failed to select the expected number of seats");
+        BaseClass.getLogger().info("Step completed: Selected " + expectedSeats + " seats as defined in properties");
     }
 
     @Then("the user should see the same number of seats selected as defined in the property file")
@@ -116,5 +73,8 @@ public class MovieSeat_Steps {
         assertEquals(actualSeats, expectedSeats,
             "The number of selected seats does not match the expected value");
         BaseClass.setDriver(driver);
+        ScreenShot.screenShotTC(BaseClass.getDriver(), "MovieSeats");
+        BaseClass.getLogger().info("Step completed: Verified selected seats count (" 
+            + actualSeats + ") matches expected (" + expectedSeats + ") and captured screenshot");
     }
 }
