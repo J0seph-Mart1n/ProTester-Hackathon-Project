@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,16 +18,18 @@ import com.test.resources.Movie;
 public class DistrictMoviePage {
 	WebDriver driver;
 	WebDriverWait wait;
+	JavascriptExecutor js;
 	
 	//Constructor
 	public DistrictMoviePage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		this.js = (JavascriptExecutor) driver;
 		PageFactory.initElements(driver, this);
 	}
 	
 	//Locators
-	@FindBy(xpath = "//a[text()='Movies']") WebElement moviesBtn;
+	@FindBy(xpath = "//a[text()='Movies'][1]") WebElement moviesBtn;
 	
 	@FindBy(xpath = "//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[1]/div[2]/a") List<WebElement> movies;
 	
@@ -36,8 +39,9 @@ public class DistrictMoviePage {
 		wait.until(ExpectedConditions.elementToBeClickable(moviesBtn)).click();
 	}
 	
-	public List<Movie> getMovieLanguage(){
-		
+	public List<Movie> getMovieLanguage() throws Exception{
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[1]/div[2]/a")));
 		
 		List<Movie> movieList = new ArrayList<>();

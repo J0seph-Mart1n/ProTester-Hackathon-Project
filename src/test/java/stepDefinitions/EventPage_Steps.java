@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.And;
 import org.openqa.selenium.WebDriver;
 
 import com.test.factory.BaseClass;
@@ -19,7 +20,7 @@ public class EventPage_Steps {
     private DistrictSocialLinks districtSocialLinks;
 
     
-    @When("The user navigate to the Events tab")
+    @When("the user navigates to the Events tab")
     public void i_navigate_to_the_events_tab() {
     	driver = BaseClass.getDriver();
         districtSocialLinks = new DistrictSocialLinks(driver);
@@ -27,13 +28,13 @@ public class EventPage_Steps {
         districtSocialLinks.goToEvents();
     }
     
-    @When("The user scroll until all events are loaded")
+    @And("the user scrolls until all events are loaded")
     public void i_scroll_until_all_events_are_loaded() throws InterruptedException {
         eventsPage = new DistrictEventsPage(driver);
         eventsPage.scrollToEnd();
     }
 
-    @When("The user fetch and sort events by price")
+    @And("the user fetches and sorts the events by ascending price")
     public void i_fetch_and_sort_events_by_price() throws InterruptedException {
         if (eventsPage == null) {
             eventsPage = new DistrictEventsPage(driver);
@@ -41,13 +42,13 @@ public class EventPage_Steps {
         sortedEvents = eventsPage.fetchAndSortByPrice();
     }
 
-    @Then("Print the sorted event list")
+    @Then("print the sorted list of events")
     public void i_print_the_sorted_event_list() {
         sortedEvents.forEach(System.out::println);
         BaseClass.setDriver(driver);
     }
     
-    @Then("The user writes sorted events to Excel")
+    @And("write the sorted events to an Excel sheet")
     public void the_user_writes_sorted_events_to_excel() throws IOException {
         // define relative path & sheet name
         String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";

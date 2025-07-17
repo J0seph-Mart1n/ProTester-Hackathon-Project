@@ -17,22 +17,26 @@ public class DiningPage_Steps {
 	private WebDriver driver;
     private DistrictDiningSearch diningPage;
     private List<Dining> diningInfo;
-
-    @When("The user search for café {string}")
-    public void searchCafe(String cafeName) throws InterruptedException {
+    
+    @Given("the user is on the Dining Search page")
+    public void openSearchPage() throws InterruptedException {
     	driver = BaseClass.getDriver();
     	driver.navigate().to("https://www.district.in/");
+    }    
+    
+    @When("the user searches for {string}")
+    public void searchCafe(String cafeName) throws InterruptedException {
         diningPage = new DistrictDiningSearch(driver);
         diningInfo = diningPage.getCafeInfo(cafeName);
     }
 
-    @Then("Print the café’s name, rate, price, time, and address to console")
+    @Then("display the café’s name, rating, price range, opening hours, and address in the console")
     public void printCafeInfo() {
         // All printing is already inside getCafeInfo()
     	BaseClass.setDriver(driver);
     }
     
-    @Then("Write dining data to Excel sheet")
+    @Then("write the café information to an Excel sheet")
     public void writeDataToExcel() throws IOException {
     	String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
         String sheetName  = "Dining Details";

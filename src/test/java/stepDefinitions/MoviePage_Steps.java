@@ -20,26 +20,26 @@ public class MoviePage_Steps {
 	DistrictMoviePage movie;
 	List<Movie> movieList;
 	
-	@Given("Open the movies page")
+	@Given("the user opens the Movies page")
 	public void open_the_movies_page() {
 	    // Write code here that turns the phrase above into concrete actions
 		driver = BaseClass.getDriver();
 	    movie = new DistrictMoviePage(driver);
 	    movie.clickMoviesPage();
 	}
-	@When("Getting all the languages of movies present")
-	public void getting_all_the_languages_of_movies_present() {
+	@When("the system retrieves the languages for all available movies")
+	public void getting_all_the_languages_of_movies_present() throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
 	    movieList = movie.getMovieLanguage();
 	}
-	@Then("print all the languages extracted")
+	@Then("print the list of identified languages")
 	public void print_all_the_languages_extracted() {
 	    // Write code here that turns the phrase above into concrete actions
 	    movie.printMovieLanguage(movieList);
 	    BaseClass.setDriver(driver);
 	}
 	
-	@Then("Write the list to Excel sheet")
+	@Then("write the complete language list to an Excel file")
 	public void writeListToExcel() throws IOException {
 		String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
         String sheetName  = "Movies";

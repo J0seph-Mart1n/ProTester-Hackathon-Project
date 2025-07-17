@@ -14,7 +14,7 @@ public class SignInPage_Steps {
 	WebDriver driver;
 	DistrictSignInPage signIn;
 	
-	@Given("Open User page")
+	@Given("the user opens the Sign-In page")
 	public void open_user_page() {
 	    // Write code here that turns the phrase above into concrete actions
 		driver = BaseClass.getDriver();
@@ -22,13 +22,13 @@ public class SignInPage_Steps {
 	    signIn.clickUserIcon();
 	}
 	
-	@When("Clicked submit without filling phone number")
+	@When("the user clicks the submit button without entering a phone number")
 	public void clicked_submit_without_filling_phone_number() {
 	    // Write code here that turns the phrase above into concrete actions
 	    signIn.clickSubmitBtn();
 	}
 	
-	@Then("Print the error message shown")
+	@Then("the system displays an error message indicating that the phone number is required")
 	public void print_the_error_message_shown() {
 	    // Write code here that turns the phrase above into concrete actions
 	    signIn.validateSignIn();

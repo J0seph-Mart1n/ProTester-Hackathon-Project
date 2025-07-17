@@ -30,18 +30,18 @@ public class ContactPage_Steps {
         contact.scrollToBottom();
     }
 
-    @When("the user clicks on the contact link")
+    @And("the user clicks on the Contact link")
     public void the_user_clicks_on_the_contact_link() {
         contact.clickContactLink();
     }
 
-    @When("the user selects an option from the dropdown")
+    @And("the user selects an option from the contact dropdown")
     public void the_user_selects_an_option_from_the_dropdown() {
         contact.clickChooseInput();
         contact.clickDropdownOption();
     }
     
-    @When("initialize XMLParser from Utility file {string}")
+    @And("the user initializes the XMLParser using utility file {string}")
     public void initializeXML(String file) throws ParserConfigurationException {
     	ReadXML xml = new ReadXML();
     	if(file.equals("ContactValidForm")) {
@@ -51,32 +51,32 @@ public class ContactPage_Steps {
     	}
     }
 
-    @When("the user enters {string} in the name field")
+    @And("the user enters {string} into the Name field")
     public void the_user_enters_in_the_name_field(String name) {
         this.name = formData[0];
     }
 
-    @When("the user enters {string} in the email field")
+    @And("the user enters {string} into the Email field")
     public void the_user_enters_in_the_email_field(String email) {
         this.email = formData[1];
     }
 
-    @When("the user enters {string} in the phone field")
+    @And("the user enters {string} into the Phone field")
     public void the_user_enters_in_the_phone_field(String phone) {
         this.phone = formData[2];
     }
 
-    @When("the user enters {string} in the message field")
+    @And("the user enters {string} into the Message field")
     public void the_user_enters_in_the_message_field(String message) {
         this.message = formData[3];
     }
 
-    @When("the user clicks the submit button")
+    @And("the user clicks the Submit button")
     public void the_user_clicks_the_submit_button() {
         contact.fillForm(name, email, phone, message);
     }
 
-    @Then("the form should {string}")
+    @And("the form should return {string}")
     public void the_form_should_be_submitted_successfully(String result) {
         // Add validation logic here, e.g., check for success message
         System.out.println("Form submitted successfully.");

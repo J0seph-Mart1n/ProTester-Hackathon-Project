@@ -1,19 +1,19 @@
 Feature: Contact Form Submission
 
-  Scenario Outline: User submits the contact form with various inputs
+  Scenario Outline: Submit contact form with multiple data sets
     Given the user is on the homepage2
     When the user scrolls to the bottom of the page
-    And the user clicks on the contact link
-    And the user selects an option from the dropdown
-    And initialize XMLParser from Utility file "<file>"
-    And the user enters "name" in the name field
-    And the user enters "email" in the email field
-    And the user enters "phone" in the phone field
-    And the user enters "message" in the message field
-    And the user clicks the submit button
-    Then the form should "result"
+    And the user clicks on the Contact link
+    And the user selects an option from the contact dropdown
+    And the user initializes the XMLParser using utility file "<file>"
+    And the user enters "name" into the Name field
+    And the user enters "email" into the Email field
+    And the user enters "phone" into the Phone field
+    And the user enters "message" into the Message field
+    And the user clicks the Submit button
+    Then the form should return "result"
 
-    Examples: 
-      | file               |
+    Examples:
+      | file               | 
       | ContactValidForm   |
       | ContactInvalidForm |

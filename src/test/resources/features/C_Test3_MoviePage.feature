@@ -1,7 +1,7 @@
-Feature: MoviesPage
+Feature: Language Extraction from Movies Section
 
-  Scenario: Getting movie languages
-    Given Open the movies page
-    When Getting all the languages of movies present
-    Then print all the languages extracted
-    Then Write the list to Excel sheet
+  Scenario: Identify and Export Available Movie Languages
+    Given the user opens the Movies page
+    When the system retrieves the languages for all available movies
+    Then print the list of identified languages
+    Then write the complete language list to an Excel file

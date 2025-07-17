@@ -1,9 +1,9 @@
-Feature: User Login Flow
-  
-    Scenario: User logs in successfully
-      Given user is on the signup page
-  		  When user clicks on the user profile icon
-      And user enters mobile number from Excel
-      And user clicks on continue
-      And user enters OTP manually
-      And user clicks on login
+  Feature: Mobile Authentication Login Flow
+
+  Scenario: Successful login with mobile number and OTP
+    Given the user is on the Sign-Up page
+    When the user clicks the profile icon
+    And the user enters the mobile number from the Excel sheet
+    And the user clicks Continue
+    And the user enters the OTP manually
+    And the user clicks Login

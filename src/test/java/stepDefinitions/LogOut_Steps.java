@@ -15,7 +15,7 @@ public class LogOut_Steps {
 	Properties prop;
 	DistrictLogInPage loginAndLogout;
 	
-	@When("user clicks on the user profile icon again")
+	@When("the user clicks on the profile icon")
 	public void user_clicks_on_the_user_profile_icon_again() {
 //		int cnt=0;
 //		if(loginAndLogout.isUserLoggedIn()) {
@@ -34,7 +34,7 @@ public class LogOut_Steps {
 		loginAndLogout.clickOnUser();
 	}
  
-	@Then("user clicks on logout")
+	@Then("the user clicks the Logout button")
 	public void user_clicks_on_logout() {
 		loginAndLogout.clickOnLogout();
 		BaseClass.setDriver(driver);

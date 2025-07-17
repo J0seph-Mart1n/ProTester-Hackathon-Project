@@ -1,7 +1,7 @@
-Feature: HomePage
+Feature: Location Selection on Home Page
 
-  Scenario: Change Location
-    Given user is on the district home page
-    When user clicks the location button
-    And clicks the Pune location
-    Then the location should be changed to Pune
+  Scenario: Successfully Change User Location
+    Given the user is on the district home page
+    When the user clicks on the location button
+    And selects Pune from the list of available locations
+    Then the location displayed on the home page should be updated to Pune

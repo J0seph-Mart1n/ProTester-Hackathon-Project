@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(features= {
-							  "./src/test/resources/features"
+							  "./src/test/resources/features/"
 						   },
 				 glue={"stepDefinitions"},
 				 plugin = {

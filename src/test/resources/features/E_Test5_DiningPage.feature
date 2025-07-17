@@ -1,6 +1,7 @@
-Feature: Dining Search and Café Info
- 
-  Scenario: Retrieve details of a specific café
-    When The user search for café "Kerala Cafe"
-    Then Print the café’s name, rate, price, time, and address to console
-    Then Write dining data to Excel sheet
+Feature: Dining Search and Café Details
+
+  Scenario: Retrieve and Export Specific Café Information
+    Given the user is on the Dining Search page
+    When the user searches for "Kerala Cafe"
+    Then display the café’s name, rating, price range, opening hours, and address in the console
+    And write the café information to an Excel sheet

@@ -17,36 +17,36 @@ public class LogIn_Steps {
 	Properties prop;
 	DistrictLogInPage loginAndLogout;
 	
-	@Given("user is on the signup page")
+	@Given("the user is on the Sign-Up page")
 	public void user_is_on_the_signup_page() throws IOException {
 		driver = BaseClass.getDriver();
 		driver.navigate().to("https://www.district.in/");
 		loginAndLogout = new DistrictLogInPage(driver);
 	}
 
-	@When("user clicks on the user profile icon")
+	@When("the user clicks the profile icon")
 	public void user_clicks_on_the_user_profile_icon() {
 		loginAndLogout.clickOnUser();
 	}
 
-	@When("user enters mobile number from Excel")
+	@When("the user enters the mobile number from the Excel sheet")
 	public void user_enters_mobile_number_from_excel() throws Exception {
 		Properties p = PropertyUtility.getLogInProperties();
 		String number = p.getProperty("mobileNo");
 		loginAndLogout.enterMobNo(number);
 	}
 
-	@When("user clicks on continue")
+	@When("the user clicks Continue")
 	public void user_clicks_on_continue() {
 		loginAndLogout.clickOnContinue();
 	}
 
-	@When("user enters OTP manually")
+	@When("the user enters the OTP manually")
 	public void user_enters_otp_manually() {
 		loginAndLogout.enterOtp();
 	}
 
-	@When("user clicks on login")
+	@When("the user clicks Login")
 	public void user_clicks_on_login() {
 		loginAndLogout.clickOnLogin();
 		BaseClass.setDriver(driver);

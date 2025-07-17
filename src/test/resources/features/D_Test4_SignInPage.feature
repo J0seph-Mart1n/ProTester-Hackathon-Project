@@ -1,6 +1,6 @@
-Feature: SignIn
+Feature: User Sign-In
 
-  Scenario: Check for SignIn fail
-    Given Open User page
-    When Clicked submit without filling phone number
-    Then Print the error message shown
+  Scenario: Sign-In fails when phone number is missing
+    Given the user opens the Sign-In page
+    When the user clicks the submit button without entering a phone number
+    Then the system displays an error message indicating that the phone number is required

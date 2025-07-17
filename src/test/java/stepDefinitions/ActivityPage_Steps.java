@@ -20,7 +20,7 @@ public class ActivityPage_Steps {
 	DistrictActivitiesPage activities;
 	List<Activity> activityInfo;
 	
-	@Given("Open the activity page")
+	@Given("the user navigates to the Activity page")
 	public void open_the_activity_page() {
 	    // Write code here that turns the phrase above into concrete actions
 		driver = BaseClass.getDriver();
@@ -28,20 +28,20 @@ public class ActivityPage_Steps {
 		activities.clickActivitiesPage();
 	}
 	
-	@When("Getting all the activities coming in weekends and sort in lowest price order")
+	@When("the system fetches all activities scheduled for the weekend and sorts the activities by ascending price")
 	public void getting_all_the_activities_coming_in_weekends_and_sort_in_lowest_price_order() {
 	    // Write code here that turns the phrase above into concrete actions
 		activityInfo = activities.getActivites();
 	}
 	
-	@Then("Print all the activities extracted")
+	@Then("display the sorted list of weekend activities to the user")
 	public void print_all_the_activities_extracted() {
 	    // Write code here that turns the phrase above into concrete actions
 		activities.printActivites(activityInfo);
 		BaseClass.setDriver(driver);
 	}
 	
-	@Then("Write all activities in Excel sheet")
+	@Then("export the activities to an Excel file")
 	public void excelWriteOperation() throws IOException {
 		String excelPath  = "src/test/resources/testdata/ExcelData.xlsx";
         String sheetName  = "SortedActivities";
