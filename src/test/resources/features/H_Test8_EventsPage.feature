@@ -5,3 +5,4 @@ Feature: Fetch and sort events by price
     And The user scroll until all events are loaded
     And The user fetch and sort events by price
     Then Print the sorted event list
+    And The user writes sorted events to Excel

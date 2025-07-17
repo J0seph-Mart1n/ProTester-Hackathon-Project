@@ -9,3 +9,4 @@ Feature: Letter-Based Search Interaction
     And the user clicks on the letter "A"
     Then the user should see the results for letter "A"
     And the user prints all result buttons
+    And Write the city names in Excel sheet
