@@ -29,7 +29,7 @@ public class ReadXML  {
 			doc.getDocumentElement().normalize();
 		}catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Data nreading from json is unsuccessful");
+			System.out.println("Data nreading from xml is unsuccessful");
 		}
 		
 		return doc;
@@ -42,9 +42,7 @@ public class ReadXML  {
 			carData[0] = doc.getElementsByTagName("name").item(0).getTextContent();
 			carData[1] = doc.getElementsByTagName("email").item(0).getTextContent();
 			carData[2] = doc.getElementsByTagName("number").item(0).getTextContent();
-			carData[3] = doc.getElementsByTagName("message").item(0).getTextContent();
-			carData[4] = doc.getElementsByTagName("result").item(0).getTextContent();
-			
+			carData[3] = doc.getElementsByTagName("message").item(0).getTextContent();			
 		}
 		catch (Exception e) {
 			// TODO: handle exception
@@ -61,12 +59,10 @@ public class ReadXML  {
 			carData[1] = doc.getElementsByTagName("email").item(0).getTextContent();
 			carData[2] = doc.getElementsByTagName("number").item(0).getTextContent();
 			carData[3] = doc.getElementsByTagName("message").item(0).getTextContent();
-			carData[4] = doc.getElementsByTagName("result").item(0).getTextContent();
-			
 		}
 		catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Data nreading from json is unsuccessful");
+			System.out.println("Data nreading from xml is unsuccessful");
 		}
 		return carData;
 	}

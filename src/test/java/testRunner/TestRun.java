@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(features= {
-							  "./src/test/resources/features/",
-//							  "./src/test/resources/features/A_Test1_HomePage.feature",
-//							  "./src/test/resources/features/L_Test12_LetterSearch.feature"
+//							  "./src/test/resources/features/",
+							  "./src/test/resources/features/A_Test1_HomePage.feature",
+							  "./src/test/resources/features/K_Test11_ContactPage.feature"
 						   },
 				 glue={"stepDefinitions"},
 				 plugin = {

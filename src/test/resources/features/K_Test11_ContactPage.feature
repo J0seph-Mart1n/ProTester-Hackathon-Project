@@ -11,7 +11,7 @@ Feature: Contact Form Submission
     And the user enters "phone" into the Phone field
     And the user enters "message" into the Message field
     And the user clicks the Submit button
-    Then the form should return "result"
+    Then the form result is printed
 
     Examples:
       | file               | 

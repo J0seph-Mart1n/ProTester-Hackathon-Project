@@ -1,14 +1,20 @@
 package com.test.objectRepository;
 
+import java.time.Duration;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DistrictContactPage {
     WebDriver driver;
+    WebDriverWait wait;
 
     public DistrictContactPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -36,6 +42,9 @@ public class DistrictContactPage {
 
     @FindBy(xpath = "/html/body/div/div/form/button")
     WebElement submitButton;
+    
+    @FindBy(xpath = "//img[@alt='Feedback icon']/following-sibling::h6")
+    WebElement feedbackMsg;
 
     // Actions
     public void scrollToBottom() {
@@ -59,6 +68,14 @@ public class DistrictContactPage {
         phoneInput.sendKeys(phone);
         messageInput.sendKeys(message);
         submitButton.click();
+    }
+    
+    public boolean checkSubmitBtn() {
+    	return submitButton.isEnabled();
+    }
+    
+    public String getFeedbackMsg() {
+    	return wait.until(ExpectedConditions.elementToBeClickable(feedbackMsg)).getText();
     }
     
     public void goToHomePage() {

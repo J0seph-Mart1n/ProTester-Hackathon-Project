@@ -85,16 +85,23 @@ public class ContactPage_Steps {
     public void the_user_clicks_the_submit_button() {
         contact.fillForm(name, email, phone, message);
         BaseClass.getLogger().info("Step completed: Clicked the Submit button");
+        ScreenShot.screenShotTC(BaseClass.getDriver(), "ContactForm");
     }
 
-    @And("the form should return {string}")
-    public void the_form_should_be_submitted_successfully(String result) {
+    @And("the form result is printed")
+    public void the_form_should_be_submitted_successfully() {
         // Add validation logic here, e.g., check for success message
-        System.out.println("Form submitted successfully.");
+    	String message;
+    	if(contact.checkSubmitBtn()) {
+    		message = contact.getFeedbackMsg();
+    	}else {
+    		message = "Form not submitted";
+    	}
+        System.out.println(message);
         contact.goToHomePage();
         BaseClass.setDriver(driver);
-        ScreenShot.screenShotTC(BaseClass.getDriver(), "ContactForm");
-        BaseClass.getLogger().info("Step completed: Form submitted successfully with result '" + result + "'");
+        
+        BaseClass.getLogger().info("Step completed: Result: '" + message + "'");
     }
 
     @Then("the form should show validation errors")
