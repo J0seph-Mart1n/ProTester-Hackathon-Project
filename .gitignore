@@ -36,3 +36,4 @@ hs_err_pid*
 
 test-output/
 allure-results/
+screenshots/
