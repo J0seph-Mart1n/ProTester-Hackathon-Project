@@ -42,6 +42,7 @@ public class DistrictActivitiesPage {
 	}
 	
 	private int parsePrice(String txt) {
+		//Parsing price from activities
         if (txt == null || txt.isEmpty()) return -1;
         txt = txt.toLowerCase();
         if (txt.contains("free")) return 0;
@@ -56,10 +57,10 @@ public class DistrictActivitiesPage {
 		lastCount = activities.size();
 		while (true) {
 			try {
-					// Scroll to the bottom
+					// Scrolls to the bottom
 				    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	
-				    // Wait for new activities to load
+				    // Waits for new activities to load
 				    boolean contentLoaded = new WebDriverWait(driver, Duration.ofSeconds(4))
 				        .until(driver1 -> { 
 				            List<WebElement> currentActivities = driver1.findElements(By.cssSelector("a.dds-h-full"));
@@ -81,6 +82,7 @@ public class DistrictActivitiesPage {
 		List<Activity> activityInfo = new ArrayList<>();
 		
 		for (WebElement act :activities) {
+			//Splitting String
 			String text = act.getText();
 			String[] parts = text.split("\\R");
 			String time, activity, location, price;
@@ -89,19 +91,11 @@ public class DistrictActivitiesPage {
 				activity = parts[1];
 				location = parts[2];
 				price = "" + parsePrice(parts[parts.length - 1]);
-//				price  = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
-//				if (price.equals("Free")){
-//					price ="0";
-//				}
 			}else {
 				time = parts[1];
 				activity = parts[2];
 				location = parts[3];
 				price = "" + parsePrice(parts[parts.length - 1]);
-//				price = parts[parts.length - 1].replaceAll("[^\\d.]", ""); //Only taking digits from the price
-//				if (price.equals("Free")){
-//					price ="0";
-//				}
 			}
 			
 						
@@ -138,7 +132,7 @@ public class DistrictActivitiesPage {
 	}
 	
 	public void printActivites(List<Activity> weekendActivities) {
-
+		//Printing activities
 		for (Activity act : weekendActivities) {
 		    System.out.println(act);
 		}

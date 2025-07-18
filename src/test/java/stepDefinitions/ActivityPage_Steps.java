@@ -26,7 +26,6 @@ public class ActivityPage_Steps {
         driver = BaseClass.getDriver();
         activities = new DistrictActivitiesPage(driver);
         activities.clickActivitiesPage();
-        
         // log after step completion
         BaseClass.getLogger().info("Step completed: Navigated to the Activity page");
     }
@@ -34,7 +33,6 @@ public class ActivityPage_Steps {
     @When("the system fetches all activities scheduled for the weekend and sorts the activities by ascending price")
     public void getting_all_the_activities_coming_in_weekends_and_sort_in_lowest_price_order() {
         activityInfo = activities.getActivites();
-        
         // log after step completion
         BaseClass.getLogger().info("Step completed: Fetched and sorted weekend activities by ascending price");
     }
@@ -44,8 +42,6 @@ public class ActivityPage_Steps {
         activities.printActivites(activityInfo);
         BaseClass.setDriver(driver);
         ScreenShot.screenShotTC(BaseClass.getDriver(), "ActivitiesSorted");
-        
-        
         // log after step completion
         BaseClass.getLogger().info("Step completed: Displayed activities and captured screenshot");
     }
@@ -58,7 +54,6 @@ public class ActivityPage_Steps {
         // write the Activity list into the sheet
         ExcelReaderWrite.writeActivities(excelPath, sheetName, activityInfo);
         System.out.println("✅ Activities written to Excel at " + excelPath);
-        
         
         // log after step completion
         BaseClass.getLogger().info("Step completed: Exported activities to Excel sheet '" + sheetName + "' at " + excelPath);

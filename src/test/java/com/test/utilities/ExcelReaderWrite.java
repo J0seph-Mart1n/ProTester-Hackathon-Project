@@ -191,7 +191,7 @@ public class ExcelReaderWrite {
 		
 		
 		
-		// 3) Write event rows
+		// 3) Write activity rows
 		for (int i = 0; i < activities.size(); i++) {
 			Activity ac = activities.get(i);
 			XSSFRow row = sheet.getRow(i + 1) != null
@@ -258,7 +258,7 @@ public class ExcelReaderWrite {
 		header.createCell(1).setCellValue("Language");
 		header.createCell(2).setCellValue("Rating");
 		
-		// 3) Write event rows
+		// 3) Write movie rows
 		for (int i = 0; i < movies.size(); i++) {
 			Movie mv = movies.get(i);
 			XSSFRow row = sheet.getRow(i + 1) != null
@@ -310,7 +310,7 @@ public class ExcelReaderWrite {
 		header.createCell(3).setCellValue("Time");
 		header.createCell(4).setCellValue("Address");
 		
-		// 3) Write event rows
+		// 3) Write dining rows
 		for (int i = 0; i < dining.size(); i++) {
 			Dining dn = dining.get(i);
 			XSSFRow row = sheet.getRow(i + 1) != null
@@ -360,7 +360,7 @@ public class ExcelReaderWrite {
 		
 		header.createCell(0).setCellValue("Letter A");
 		
-		// 3) Write event rows
+		// 3) Write city rows
 		for (int i = 0; i < cities.size(); i++) {
 			String ct = cities.get(i);
 			XSSFRow row = sheet.getRow(i + 1) != null

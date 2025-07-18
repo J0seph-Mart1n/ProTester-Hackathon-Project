@@ -11,24 +11,25 @@ public class DistrictEventsPage {
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
-
-    private By eventCardLocator = By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[3]/div[2]/a");
-    //private final By priceLoc = By.xpath(".//span[contains(text(),'₹') or contains(text(),'Free')]");
-
-    private final By dateLoc     = By.xpath(".//div/div/span[1]");
-    private final By nameLoc     = By.xpath(".//div/div/h5");
-    private final By locationLoc = By.xpath(".//div/div/span[2]");
-    private final By priceLoc    = By.xpath(".//div/div/span[3]");
-
     
+    //Constructor
     public DistrictEventsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.js = (JavascriptExecutor) driver;
         PageFactory.initElements(driver, this);
     }
+    
+    //Locator
+    private By eventCardLocator = By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[3]/div[2]/a");
+    private final By dateLoc     = By.xpath(".//div/div/span[1]");
+    private final By nameLoc     = By.xpath(".//div/div/h5");
+    private final By locationLoc = By.xpath(".//div/div/span[2]");
+    private final By priceLoc    = By.xpath(".//div/div/span[3]");
 
+    //Actions
     public void scrollToEnd() throws InterruptedException {
+    	//Scrolls till the end of the page
         long lastHeight = (long) js.executeScript("return document.body.scrollHeight");
 
         while (true) {
@@ -71,6 +72,7 @@ public class DistrictEventsPage {
     }
 
     private int parsePrice(String txt) {
+    	//Parsing price from events
         if (txt == null || txt.isEmpty()) return -1;
         txt = txt.toLowerCase();
         if (txt.contains("free")) return 0;

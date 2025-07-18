@@ -40,12 +40,14 @@ public class DistrictMoviePage {
 	}
 	
 	public List<Movie> getMovieLanguage() throws Exception{
+		//Gets language, rating and movie name
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='page-content']/section/div[1]/div[1]/div[2]/div[1]/div[2]/a")));
 		
 		List<Movie> movieList = new ArrayList<>();
 		
+		//Prints total no of movies
 		System.out.println("Total movies: " + movies.size());
 		
 		for(WebElement movie:movies) {
@@ -64,6 +66,7 @@ public class DistrictMoviePage {
 	}
 	
 	public void printMovieLanguage(List<Movie> movieList) {
+		//Prints all the movies
 		for(Movie mov:movieList) {
 			System.out.println(mov);
 		}

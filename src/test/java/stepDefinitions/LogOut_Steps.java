@@ -17,7 +17,6 @@ public class LogOut_Steps {
  
 	@When("the user clicks on the profile icon")
 	public void user_clicks_on_the_user_profile_icon_again() {
- 
 		driver = BaseClass.getDriver();
 		loginAndLogout = new DistrictLogInPage(driver);
 		if(loginAndLogout.isUserLoggedIn()) {

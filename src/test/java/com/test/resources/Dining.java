@@ -1,5 +1,6 @@
 package com.test.resources;
 
+//Used for adding dining details to a list
 public class Dining {
 	
 	private String name;

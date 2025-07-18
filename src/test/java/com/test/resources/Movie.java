@@ -1,5 +1,6 @@
 package com.test.resources;
 
+//Used for adding movie languages to a list
 public class Movie {
 
 	public String movieName;

@@ -14,6 +14,7 @@ public class DistrictLetterSearch {
     Actions actions;
     List<String> cityLetters;
 
+    //Constructor
     public DistrictLetterSearch(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);
@@ -38,16 +39,19 @@ public class DistrictLetterSearch {
 
     // Actions
     public void clickMenuButton() throws InterruptedException {
-        Thread.sleep(5000);
+    	//Clicks the location button
+        Thread.sleep(3000);
         menuButton.click();
     }
 
     public void hoverAndScroll() {
+    	//Scrolls to city list in location
         actions.moveToElement(hoverSection).perform();
         actions.scrollToElement(scrollTarget).perform();
     }
 
     public void clickLetter(String letter) {
+    	//Gets the city names for the given letter
         for (WebElement l : letterButtons) {
             if (l.getText().equalsIgnoreCase(letter)) {
                 l.click();
@@ -57,6 +61,7 @@ public class DistrictLetterSearch {
     }
 
     public void printAllResultButtons() {
+    	//Prints and adds cities to a list
     	cityLetters = new ArrayList<>();
         for (WebElement button : resultButtons) {
         	cityLetters.add(button.getText());
@@ -65,6 +70,7 @@ public class DistrictLetterSearch {
     }
     
     public List<String> getLetterCity() {
+    	//Returns list
     	return cityLetters;
     }
     

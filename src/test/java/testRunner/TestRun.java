@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 @Test
 @CucumberOptions(features= {
 							  "./src/test/resources/features/",
-//							  "./src/test/resources/features/A_Test1_HomePage.feature",
-//							  "./src/test/resources/features/F_Test6_LogInPage.feature",
-//							  "./src/test/resources/features/G_Test7_LogOutPage.feature"
 						   },
 				 glue={"stepDefinitions"},
 				 plugin = {

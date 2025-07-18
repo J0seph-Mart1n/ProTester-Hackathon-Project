@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DistrictContactPage {
     WebDriver driver;
     WebDriverWait wait;
-
+    
+    //Constructor
     public DistrictContactPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -48,21 +49,26 @@ public class DistrictContactPage {
 
     // Actions
     public void scrollToBottom() {
+    	//Scrolls to bottom
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
     public void clickContactLink() {
+    	//Clicks the contact link in footer
         contactLink.click();
     }
     public void clickChooseInput() {
+    	//Clicks dropdown menu
     	chooseInput.click();
     }
     public void clickDropdownOption() {
+    	//Clicks the option listed in dropdown
     	dropdownOption.click();
     }
 
     public void fillForm(String name, String email, String phone, String message) {
+    	//Fills input field and submits form
         nameInput.sendKeys(name);
         emailInput.sendKeys(email);
         phoneInput.sendKeys(phone);
@@ -71,14 +77,17 @@ public class DistrictContactPage {
     }
     
     public boolean checkSubmitBtn() {
+    	//Checks if submit button is disabled
     	return submitButton.isEnabled();
     }
     
     public String getFeedbackMsg() {
+    	//Gets the feedback message after submitting the contact form
     	return wait.until(ExpectedConditions.elementToBeClickable(feedbackMsg)).getText();
     }
     
     public void goToHomePage() {
+    	//Goes to home page
     	driver.navigate().to("https://www.district.in/");
     }
 }

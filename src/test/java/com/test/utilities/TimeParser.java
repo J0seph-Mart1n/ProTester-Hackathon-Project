@@ -14,6 +14,7 @@ public class TimeParser {
     private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h[:mm]a");
 
     public static LocalDateTime parseDateTime(String datePart, String timePart, int defaultYear) {
+    	//Parses date from string
         try {
         	String fullDate = datePart.trim() + " " + defaultYear;
             LocalDate date = LocalDate.parse(fullDate, dateFormatter);
@@ -26,6 +27,7 @@ public class TimeParser {
     }
     
     public static boolean isHappeningOnWeekend(Activity activity) {
+    	//Checks if the date is on weekend
         LocalDate start = activity.getStartDateTime().toLocalDate();
         LocalDate end = activity.getEndDateTime() != null
             ? activity.getEndDateTime().toLocalDate()

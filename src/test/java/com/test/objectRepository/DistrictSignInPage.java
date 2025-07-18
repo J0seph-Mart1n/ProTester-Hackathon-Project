@@ -27,14 +27,17 @@ public class DistrictSignInPage {
 	
 	//Actions
 	public void clickUserIcon() {
+		//Clicks the user icon
 		wait.until(ExpectedConditions.elementToBeClickable(profileBtn)).click();
 	}
 	
 	public void clickSubmitBtn() {
+		//Clicks submit when asked for number
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
 	}
 	
 	public void validateSignIn() {
+		//Validates if error message is shown when clicked submit without filling phone number
 		String errorMsg = wait
 			    .until(ExpectedConditions.visibilityOfElementLocated(
 			        By.xpath("//div[@class='dds-p-4']/div[1]/div[2]/p")))

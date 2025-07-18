@@ -2,6 +2,7 @@ package com.test.resources;
 
 import java.time.LocalDateTime;
 
+//Used for adding activities in a list
 public class Activity {
 	
 	public LocalDateTime startDateTime;

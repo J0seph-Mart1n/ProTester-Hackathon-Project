@@ -21,6 +21,7 @@ public class ReadXML  {
 	}
 	
 	public static Document initializeXML(String fileName) {
+		//Initializes XML Instances
 		try {
 			File file = new File(filePath+fileName);
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -36,6 +37,7 @@ public class ReadXML  {
 	}
 	
 	public String[] getContactValidData(){
+		//Gets data from ContactValidForm.xml
 		Document doc = initializeXML("ContactValidForm.xml");
 		String[] carData = new String[5];
 		try {
@@ -52,6 +54,7 @@ public class ReadXML  {
 	}
 	
 	public String[] getContactInvalidData(){
+		//Gets data from ContatInvalidData.xml
 		Document doc = initializeXML("ContactInvalidForm.xml");
 		String[] carData = new String[5];
 		try {

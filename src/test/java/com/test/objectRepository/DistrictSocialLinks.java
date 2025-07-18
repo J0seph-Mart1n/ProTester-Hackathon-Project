@@ -1,9 +1,6 @@
 package com.test.objectRepository;
 
-
 import java.time.Duration;
-
-//import java.util.Set;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
@@ -13,7 +10,16 @@ public class DistrictSocialLinks {
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
+    
+    //Constructor
+    public DistrictSocialLinks(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.js = (JavascriptExecutor) driver;
+        PageFactory.initElements(driver, this);
+    }
 
+    //Locator
     @FindBy(xpath = "//a[text()='Events']")
     private WebElement eventsTab;
 
@@ -29,27 +35,24 @@ public class DistrictSocialLinks {
     @FindBy(xpath = "//*[@id='footer']//a[contains(@href,'youtube')]")
     private WebElement youtubeIcon;
 
-    public DistrictSocialLinks(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.js = (JavascriptExecutor) driver;
-        PageFactory.initElements(driver, this);
-    }
-
+    //Actions
     public void open(String url) {
+    	//Opens the url given
         driver.get(url);
     }
 
     public void goToEvents() {
+    	//Goes to events page
         wait.until(ExpectedConditions.elementToBeClickable(eventsTab)).click();
-    	//eventsTab.click();
     }
 
     public void scrollToFooter() {
+    	//Scrolls till footer
         js.executeScript("arguments[0].scrollIntoView(true);", footer);
     }
 
     public void clickAndVerifySocialIcon(String iconName, String expectedTitle) {
+    	//Clicks the social media links in the footer
     	 WebElement icon;
     	    switch (iconName.toLowerCase()) {
     	        case "facebook":

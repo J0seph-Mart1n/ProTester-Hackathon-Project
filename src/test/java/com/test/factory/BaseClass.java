@@ -23,12 +23,12 @@ public class BaseClass {
 	static Logger logger;
  
 	public static WebDriver initilizeBrowser(String browser) throws IOException {
+		//Gets string from property file
 		p = getProperties();
 		String executionEnv = p.getProperty("executionEnvironment");
- 
+		//Grid Execution
 		if (executionEnv.equalsIgnoreCase("remote")) {
- 
- 
+			//URL for Grid execution
 			URL url = URI.create("http://10.112.55.13:4444").toURL();
 			if (browser.equalsIgnoreCase("chrome")) {
 		        ChromeOptions options = new ChromeOptions();
@@ -44,8 +44,8 @@ public class BaseClass {
 			}
  
 		}
+		//Local Execution
 		if (executionEnv.equalsIgnoreCase("local")) {
- 
 			switch (browser) {
 			case "chrome":
 				ChromeOptions options = new ChromeOptions();
@@ -61,6 +61,7 @@ public class BaseClass {
 			}
 		}
 		driver.manage().deleteAllCookies();
+		//Page load timeout of 30 seconds
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
  
@@ -78,6 +79,7 @@ public class BaseClass {
 	}
  
 	public static Properties getProperties() throws IOException {
+		//Gets property file from resources
 		FileReader file = new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties");
 		p = new Properties();
 		p.load(file);
@@ -85,6 +87,7 @@ public class BaseClass {
 	}
  
 	public static Logger getLogger() {
+		//Returns Log4j logger
 		logger = LogManager.getLogger(); // Log4j
 		return logger;
 	}

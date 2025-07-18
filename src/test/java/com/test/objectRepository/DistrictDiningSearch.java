@@ -20,7 +20,15 @@ import com.test.resources.Dining;
 public class DistrictDiningSearch {
     private WebDriver driver;
     WebDriverWait wait;
-
+    
+    //Constructor
+    public DistrictDiningSearch(WebDriver driver) {
+        this.setDriver(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
+    }
+    
+    //Locator
     @FindBy(xpath = "//a[text()='Dining']")
     private WebElement diningMenu;
 
@@ -36,15 +44,8 @@ public class DistrictDiningSearch {
     @FindBy(xpath = "//*[@id=\"restaurant-info\"]/div[1]/section[1]/child::*")
     private List<WebElement> restaurantDetails;
 
-    public DistrictDiningSearch(WebDriver driver) {
-        this.setDriver(driver);
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        PageFactory.initElements(driver, this);
-    }
 
-    /**
-     * Searches for cafeName and prints its name, rate, price, time, address.
-     */
+    //Searches for cafeName and prints its name, rate, price, time, address.
     public List<Dining> getCafeInfo(String cafeName) throws InterruptedException {
     	
     	Thread.sleep(3000);
@@ -60,6 +61,7 @@ public class DistrictDiningSearch {
         firstResult.click();
         Thread.sleep(3000);
 
+        //Splitting string
         String name    = restaurantDetails.get(0).getText();
         String raw     = restaurantDetails.get(1).getText();
         String[] parts = raw.split("\\s*\\|\\s*");
@@ -73,6 +75,7 @@ public class DistrictDiningSearch {
         System.out.println("Address : " + address);
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
         
+        //Adding details to a list
         List<Dining> diningInfo = new ArrayList<>();
         diningInfo.add(new Dining(name, parts[0], parts[1], parts[2].replace("\n", "").replace("\r", ""), address));
         return diningInfo;

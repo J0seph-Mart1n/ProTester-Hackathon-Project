@@ -14,12 +14,12 @@
     </classes>
   </test> <!-- Test -->
   
-  <test name="DistrictTest - Chrome">
+  <!-- <test name="DistrictTest - Chrome">
   <parameter name="browser" value="chrome"/>
     <classes>
       <class name="testRunner.TestRun"/>
     </classes>
-  </test> <!--Test -->
+  </test> Test -->
   
   
 </suite> <!-- Suite -->

@@ -90,7 +90,6 @@ public class ContactPage_Steps {
 
     @And("the form result is printed")
     public void the_form_should_be_submitted_successfully() {
-        // Add validation logic here, e.g., check for success message
     	String message;
     	if(contact.checkSubmitBtn()) {
     		message = contact.getFeedbackMsg();
@@ -106,7 +105,6 @@ public class ContactPage_Steps {
 
     @Then("the form should show validation errors")
     public void the_form_should_show_validation_errors() {
-        // Add validation logic here, e.g., check for error messages
         System.out.println("Form submission failed due to validation errors.");
         BaseClass.getLogger().info("Step completed: Form displayed validation errors");
     }
