@@ -1,4 +1,4 @@
-  Feature: Mobile Authentication Login Flow
+Feature: Mobile Authentication Login Flow
 
   Scenario: Successful login with mobile number and OTP
     Given the user is on the Sign-Up page
@@ -7,3 +7,4 @@
     And the user clicks Continue
     And the user enters the OTP manually
     And the user clicks Login
+    Then user verifies login status
